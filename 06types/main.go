@@ -13,7 +13,11 @@ func main() {
 
 	// fmt.Println(cards.toByte())
 
-	cards := deckFromFile("fdsff")
+	cards := deckFromFile("mycards")
+
+	cards.getDeck()
+
+	cards.shuffleDeck()
 
 	cards.getDeck()
 
