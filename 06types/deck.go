@@ -44,7 +44,6 @@ func (d deck) getDeck() {
 }
 
 //using parameters
-
 // returning multiple values
 
 func deal(d deck, handsize int) (deck, deck) {
@@ -59,8 +58,24 @@ func (d deck) toByte() []byte {
 	return newstring
 
 }
+
 func (d deck) savetoFile(filename string) error {
 	// save this deck
 	return os.WriteFile(filename, d.toByte(), 0666)
+
+}
+
+func deckFromFile(filename string) deck {
+	bs, err := os.ReadFile(filename)
+	if err != nil {
+		//we can log the error and close the program
+		fmt.Println(err)
+		os.Exit(1)
+	}
+
+	// string(bs)// Ace of Spades, Two of Spades , Three of Spades
+
+	s := strings.Split(string(bs), ",")
+	return deck(s)
 
 }

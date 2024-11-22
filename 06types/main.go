@@ -1,7 +1,7 @@
 package main
 
 func main() {
-	cards := newDeck()
+	// cards := newDeck()
 
 	// cards.getDeck()
 
@@ -13,7 +13,9 @@ func main() {
 
 	// fmt.Println(cards.toByte())
 
-	cards.savetoFile("mycards")
+	cards := deckFromFile("fdsff")
+
+	cards.getDeck()
 
 }
 
